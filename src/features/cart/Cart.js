@@ -14,10 +14,10 @@ export default function Cart() {
   const user = useSelector(selectLoggedInUser);
   const items = useSelector(selectItems);
   
+  // fetching items by user id on page load
   useEffect(()=>{
     dispatch(fetchItemsByUserIdAsync(user.id))
-    //console.log(items)
-  },[dispatch,items]);
+  },[dispatch]);
   
   let totalAmount = 0;
   let totalItems = 0;
@@ -35,7 +35,6 @@ export default function Cart() {
   }
 
   const handleRemove = (e,id)=>{
-     console.log(id)
      dispatch(deleteItemFromCartAsync(id))
   }
 

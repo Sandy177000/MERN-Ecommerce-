@@ -29,7 +29,7 @@ function Checkout() {
   useEffect(() => {
     dispatch(fetchItemsByUserIdAsync(user.id));
     //console.log(items)
-  }, [dispatch, items]);
+  }, [dispatch]);
 
   let totalAmount = 0;
   let totalItems = 0;

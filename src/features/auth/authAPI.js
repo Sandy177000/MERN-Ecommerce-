@@ -47,3 +47,10 @@ export function updateUser(update) {
     resolve({result});
   });
 }
+
+
+export function signOut() {
+  return new Promise(async(resolve) =>{
+     resolve({data:"success"})
+  });
+}

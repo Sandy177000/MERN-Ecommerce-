@@ -27,6 +27,7 @@ import UserOrders from "./features/user/components/UserOrders";
 import UserOrderPage from "./pages/UserOrderPage";
 import UserProfile from "./features/user/components/UserProfile";
 import UserProfilePage from "./pages/UsersProfilePage";
+import Logout from "./features/auth/components/Logout";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -71,6 +72,12 @@ const router = createBrowserRouter([
   {
     path:"profile",
     element:<UserProfilePage/>
+  }
+  ,
+  ,
+  {
+    path:"logout",
+    element:<Logout/>
   }
   ,
   {

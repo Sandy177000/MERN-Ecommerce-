@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchAllBrandsAsync, fetchAllCategoryAsync, fetchProductsByFilterAsync, selectAllBrands, selectAllCategory, selectAllProducts, selectTotalItems } from "../productSlice";
+import {
+  fetchAllBrandsAsync,
+  fetchAllCategoryAsync,
+  fetchProductsByFilterAsync,
+  selectAllBrands,
+  selectAllCategory,
+  selectAllProducts,
+  selectTotalItems,
+} from "../productSlice";
 
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import { Fragment } from "react";
@@ -43,18 +51,16 @@ export default function ProductList() {
   const categories = useSelector(selectAllCategory);
   const brands = useSelector(selectAllBrands);
 
-    
   const filters = [
     {
       id: "category",
       name: "Category",
-      options: categories
-      
+      options: categories,
     },
     {
       id: "brand",
       name: "brand",
-      options: brands
+      options: brands,
     },
   ];
 
@@ -97,19 +103,17 @@ export default function ProductList() {
     dispatch(fetchProductsByFilterAsync({ filter, sort, pagination }));
   }, [dispatch, filter, sort, page]);
 
-
-
-  // reset the page to 1 as we jump on any page 
-  useEffect(()=>{
+  // reset the page to 1 as we jump on any page
+  useEffect(() => {
     setPage(1);
-  },[totalItems])
+  }, [totalItems]);
 
-  console.log(products)
+  console.log(products);
 
-  useEffect(()=>{
-     dispatch(fetchAllCategoryAsync());
-     dispatch(fetchAllBrandsAsync());
-  },[categories,brands]);
+  useEffect(() => {
+    dispatch(fetchAllCategoryAsync());
+    dispatch(fetchAllBrandsAsync());
+  }, [dispatch]);
 
   return (
     <div>
@@ -480,7 +484,7 @@ function Pagination({ page, setPage, handlePage, totalItems }) {
               <span className="font-medium">
                 {(page - 1) * ITEMS_PER_PAGE + 1}
               </span>{" "}
-              to <span className="font-medium">{page*ITEMS_PER_PAGE }</span> of{" "}
+              to <span className="font-medium">{page * ITEMS_PER_PAGE}</span> of{" "}
               <span className="font-medium">{totalItems}</span> results
             </p>
           </div>
@@ -494,15 +498,14 @@ function Pagination({ page, setPage, handlePage, totalItems }) {
                 className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
               >
                 <span className="sr-only">Previous</span>
-                <ChevronLeftIcon 
-                  className="h-5 w-5" 
-                  aria-hidden="true" 
-                  onClick={e=>
-                    { e.preventDefault();
-                      if(page-1>0)
-                        setPage((page-1))
-                    }} 
-                  />
+                <ChevronLeftIcon
+                  className="h-5 w-5"
+                  aria-hidden="true"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (page - 1 > 0) setPage(page - 1);
+                  }}
+                />
               </a>
               {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
 
@@ -533,13 +536,15 @@ function Pagination({ page, setPage, handlePage, totalItems }) {
                 className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
               >
                 <span className="sr-only">Next</span>
-                <ChevronRightIcon 
-                  onClick={e=>
-                  { e.preventDefault();
-                    if(Math.ceil(totalItems/ITEMS_PER_PAGE)>page)
-                      setPage((page+1))
-                  }} 
-                  className="h-5 w-5" aria-hidden="true" />
+                <ChevronRightIcon
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (Math.ceil(totalItems / ITEMS_PER_PAGE) > page)
+                      setPage(page + 1);
+                  }}
+                  className="h-5 w-5"
+                  aria-hidden="true"
+                />
               </a>
             </nav>
           </div>

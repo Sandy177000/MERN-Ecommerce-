@@ -53,7 +53,7 @@ export default function ProductDetails() {
 
   useEffect(()=>{
       dispatch(fetchProductByIdAsync(params.id))
-  },[dispatch,params.id])
+  },[dispatch])
 
    console.log(product)
   return (
