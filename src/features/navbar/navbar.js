@@ -4,16 +4,13 @@ import { Bars3Icon, ShoppingCartIcon, XMarkIcon } from '@heroicons/react/24/outl
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { selectItems } from '../cart/CartSlice'
+import { selectLoggedInUser } from '../auth/authSlice'
 
-const user = {
-  name: 'Tom Cook',
-  email: 'tom@example.com',
-  imageUrl:
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-}
+
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
+  { name: 'Dashboard', link: '/', user: true },
+  { name: 'Team', link: '/', user: true },
+  { name: 'Admin', link: '/admin', admin:true},
 ]
 const userNavigation = [
   { name: 'My Profile', link: '/profile' },
@@ -27,6 +24,8 @@ function classNames(...classes) {
 
 function Navbar({children}){
   const items = useSelector(selectItems);
+  const user = useSelector(selectLoggedInUser);
+
     return (
         <>
         <div className="min-h-full">
@@ -48,9 +47,9 @@ function Navbar({children}){
                       <div className="hidden md:block">
                         <div className="ml-10 flex items-baseline space-x-4">
                           {navigation.map((item) => (
-                            <a
+                            item[user.role] ? <Link
                               key={item.name}
-                              href={item.href}
+                              to={item.link}
                               className={classNames(
                                 item.current
                                   ? 'bg-gray-900 text-white'
@@ -60,7 +59,7 @@ function Navbar({children}){
                               aria-current={item.current ? 'page' : undefined}
                             >
                               {item.name}
-                            </a>
+                            </Link> :null
                           ))}
                         </div>
                       </div>
@@ -143,10 +142,10 @@ function Navbar({children}){
                 <Disclosure.Panel className="md:hidden">
                   <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
                     {navigation.map((item) => (
-                      <Disclosure.Button
+                      <Link to={item.link}>
+                        <Disclosure.Button
                         key={item.name}
                         as="a"
-                        href={item.href}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'block rounded-md px-3 py-2 text-base font-medium'
@@ -155,6 +154,8 @@ function Navbar({children}){
                       >
                         {item.name}
                       </Disclosure.Button>
+                      </Link>
+
                     ))}
                   </div>
                   <div className="border-t border-gray-700 pb-3 pt-4">

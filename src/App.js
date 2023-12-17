@@ -28,12 +28,26 @@ import UserOrderPage from "./pages/UserOrderPage";
 import UserProfile from "./features/user/components/UserProfile";
 import UserProfilePage from "./pages/UsersProfilePage";
 import Logout from "./features/auth/components/Logout";
+import ForwardPasswordPage from "./pages/ForwardPasswordPage";
+import ProtectedAdmin from './features/auth/components/ProtectedAdmin';
+import AdminHome from './pages/AdminHome';
+import AdminProductDetails from './features/admin/components/AdminProductDetails';
+import AdminProductDetailsPage from "./pages/AdminProductDetailPage";
+import ProductForm from "./features/admin/components/ProductForm";
+import AdminProductFormPage from './pages/AdminProductForm';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Protected>
       <Home></Home>
     </Protected>
+
+  },
+  {
+    path: "/admin",
+    element: <ProtectedAdmin>
+      <AdminHome></AdminHome>
+    </ProtectedAdmin>
 
   },
   {
@@ -58,6 +72,20 @@ const router = createBrowserRouter([
     path: "product-details/:id",
     element: <Protected><ProductDetails></ProductDetails></Protected>
   },
+  
+  {
+    path: "/admin/product-details/:id",
+    element: <ProtectedAdmin><AdminProductDetailsPage></AdminProductDetailsPage></ProtectedAdmin>
+  },
+  {
+    path: "/admin/product-form",
+    element: <ProtectedAdmin><AdminProductFormPage/></ProtectedAdmin>
+  },
+  
+  {
+    path: "/admin/product-form/edit/:id",
+    element: <ProtectedAdmin><AdminProductFormPage/></ProtectedAdmin>
+  },
   {
     path:"order-success/:id",
     element:<OrderSuccessPage/>
@@ -74,11 +102,17 @@ const router = createBrowserRouter([
     element:<UserProfilePage/>
   }
   ,
+  
+  {
+    path:"forgot-password",
+    element:<ForwardPasswordPage/>
+  }
   ,
   {
     path:"logout",
     element:<Logout/>
   }
+
   ,
   {
     path:"*",
