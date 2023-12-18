@@ -588,6 +588,6 @@ function Pagination({ page, setPage, handlePage, totalItems }) {
   );
 }
 
-function ProductGrid() {
-  return <></>;
-}
+// function ProductGrid() {
+//   return <></>;
+// }

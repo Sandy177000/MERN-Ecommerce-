@@ -42,8 +42,8 @@ export default function Cart() {
   return (
     <>{ items[items.length-1]?
       (<div className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 lg:px-8 bg-white">
-        <h1 className="text-4xl my-5 font-bold tracking-tight text-gray-900">
-          Cart
+        <h1 className="text-4xl my-5 pt-4 font-bold tracking-tight text-gray-900">
+          My Cart
         </h1>
         <div className="mt-8">
           <div className="flow-root">

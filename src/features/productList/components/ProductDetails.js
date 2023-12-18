@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchProductByIdAsync, selectedProductById } from '../productSlice'
 import { useParams } from 'react-router-dom'
 import { addToCart } from '../../cart/CartAPI'
-import { addToCartAsync } from '../../cart/CartSlice'
+import { addToCartAsync, selectItems } from '../../cart/CartSlice'
 import { selectLoggedInUser } from './../../auth/authSlice';
 
 
@@ -42,12 +42,19 @@ export default function ProductDetails() {
   const user = useSelector(selectLoggedInUser);
   const dispatch = useDispatch();
   const params = useParams();
+  const items = useSelector(selectItems);
 
   const handleCart = (e) =>{
     e.preventDefault();
-    const newItem = {...product,quantity:1,user:user.id};
-    delete newItem['id'];
-    dispatch(addToCartAsync(newItem));
+    if(items.findIndex(item=>item.productId===product.id)<0){
+      const newItem = {...product,productId:product.id,quantity:1,user:user.id};
+      delete newItem['id'];
+      dispatch(addToCartAsync(newItem));
+      console.log(items)
+    }
+    else{
+      console.log("already added")
+    }
   }
 
 
