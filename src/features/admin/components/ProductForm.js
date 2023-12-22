@@ -12,7 +12,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { fetchProductById } from "../../productList/productAPI";
 
 export default function ProductForm() {
   const {
@@ -58,6 +57,7 @@ export default function ProductForm() {
   // delete product
   const handledelete = ()=>{
     const delProd = {...product,delete:true}
+    console.log(delProd)
     dispatch(updateProductAsync(delProd));
   }
 
@@ -77,7 +77,7 @@ export default function ProductForm() {
         delete product["image2"];
         delete product["image3"];
         product.price = +product.price;
-        product.discount = +product.discount;
+        product.discountPercentage = +product.discountPercentage;
         product.stock = +product.stock;
         console.log(product);
         if(params.id){
@@ -160,7 +160,7 @@ export default function ProductForm() {
 
             <div className="sm:col-span-2">
               <label
-                htmlFor="discount"
+                htmlFor="discountPercentage"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Discount
@@ -169,12 +169,12 @@ export default function ProductForm() {
                 <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
                   <input
                     type="number"
-                    {...register("discount", {
-                      required: "discount required",
+                    {...register("discountPercentage", {
+                      required: "discountPercentage required",
                       min: 0,
                       max: 100,
                     })}
-                    id="discount"
+                    id="discountPercentage"
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                   />
                 </div>

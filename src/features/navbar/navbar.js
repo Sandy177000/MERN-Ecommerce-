@@ -16,7 +16,7 @@ const navigation = [
 const userNavigation = [
   { name: 'My Profile', link: '/profile' },
   { name: 'My Orders', link: '/orders' },
-  { name: 'Sign out', link: '/logout' },
+  { name: 'Sign out', link: '/auth/logout' },
 ]
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -125,6 +125,8 @@ function Navbar({children}){
                         </Menu>
                       </div>
                     </div>
+
+
                     <div className="-mr-2 flex md:hidden">
                       {/* Mobile menu button */}
                       <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
@@ -143,7 +145,7 @@ function Navbar({children}){
                 <Disclosure.Panel className="md:hidden">
                   <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
                     {navigation.map((item) => (
-                      <Link to={item.link}>
+                      <>{item[user.role]  ? <Link to={item.link}>
                         <Disclosure.Button
                         key={item.name}
                         as="a"
@@ -155,7 +157,8 @@ function Navbar({children}){
                       >
                         {item.name}
                       </Disclosure.Button>
-                      </Link>
+                      </Link>: null}
+                      </>
 
                     ))}
                   </div>
@@ -186,14 +189,17 @@ function Navbar({children}){
                     </div>
                     <div className="mt-3 space-y-1 px-2">
                       {userNavigation.map((item) => (
+
+                        <Link to={item.link}>
                         <Disclosure.Button
                           key={item.name}
                           as="a"
-                          href={item.href}
                           className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
                         >
                           {item.name}
                         </Disclosure.Button>
+                        </Link>
+                        
                       ))}
                     </div>
                   </div>

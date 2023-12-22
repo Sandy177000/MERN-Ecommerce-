@@ -52,11 +52,11 @@ const router = createBrowserRouter([
 
   },
   {
-    path: "login",
+    path: "auth/login",
     element: <LoginPage />,
   },
   {
-    path: "signup",
+    path: "auth/signup",
     element: <SignupPage />,
   },
 
@@ -115,7 +115,7 @@ const router = createBrowserRouter([
   }
   ,
   {
-    path:"logout",
+    path:"auth/logout",
     element:<Logout/>
   }
 

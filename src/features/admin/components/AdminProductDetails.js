@@ -48,6 +48,7 @@ export default function AdminProductDetails() {
     delete newItem['id'];
     dispatch(addToCartAsync(newItem));
   }
+  
 
 
   useEffect(()=>{

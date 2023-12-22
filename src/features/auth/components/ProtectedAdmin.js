@@ -6,11 +6,13 @@ import { Navigate } from "react-router-dom";
 function ProtectedAdmin({children}) {
     const user = useSelector(selectLoggedInUser);
     if(!user){
-        return <Navigate to="/login" replace={true}></Navigate>
+        return <Navigate to="auth/login" replace={true}></Navigate>
     }
     if(user && user.role!=="admin"){
-        return <Navigate to="/" replace={true}></Navigate>
+        return <Navigate to="/admin/" replace={true}></Navigate>
     }
+    console.log(user.role)
+     
 
     return children;
     

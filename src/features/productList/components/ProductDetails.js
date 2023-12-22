@@ -46,21 +46,20 @@ export default function ProductDetails() {
 
   const handleCart = (e) =>{
     e.preventDefault();
-    if(items.findIndex(item=>item.productId===product.id)<0){
-      const newItem = {...product,productId:product.id,quantity:1,user:user.id};
-      delete newItem['id'];
+    if(items.findIndex(item=>item.product.id===product.id)<0){
+      const newItem = {product:product.id,quantity:1,user:user.id};
       dispatch(addToCartAsync(newItem));
-      console.log(items)
+      alert("Item added to Cart")
     }
     else{
-      console.log("already added")
+      alert("Item already added to Cart")
     }
   }
 
 
   useEffect(()=>{
       dispatch(fetchProductByIdAsync(params.id))
-  },[dispatch])
+  },[dispatch,params.id])
 
    console.log(product)
   return (

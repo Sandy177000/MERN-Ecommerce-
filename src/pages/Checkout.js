@@ -29,21 +29,23 @@ function Checkout() {
   useEffect(() => {
     dispatch(fetchItemsByUserIdAsync(user.id));
     //console.log(items)
-  }, [dispatch]);
+  }, [dispatch,user,items]);
 
-  let totalAmount = 0;
-  let totalItems = 0;
+  // let totalAmount = 0;
+  // let totalItems = 0;
 
-  if (items[items.length - 1]) {
-    totalAmount = items.reduce(
-      (amount, item) => item.price * item.quantity + amount,
-      0
-    );
-    totalItems = items.reduce((total, item) => item.quantity + total, 0);
-  }
+  // if (items[items.length - 1]) {
+  // }
+
+  const totalAmount = items.reduce(
+    (amount, item) => item.product.price * item.quantity + amount,
+    0
+  );
+  const totalItems = items.reduce((total, item) => item.quantity + total, 0);
+
 
   const handleQuantity = (e, item) => {
-    dispatch(updateCartAsync({ ...item, quantity: +e.target.value }));
+    dispatch(updateCartAsync({ id:item.id, quantity: +e.target.value }));
   };
 
   const handleRemove = (e, id) => {
@@ -77,7 +79,7 @@ function Checkout() {
         items,
         totalAmount,
         totalItems,
-        user,
+        user:user.id,
         paymentMethod,
         selectedAddress,
         status: "pending", // only admin can change the status
@@ -108,7 +110,7 @@ function Checkout() {
             <form
               className="px-5 mt-12"
               noValidate
-              onClick={handleSubmit((data) => {
+              onSubmit={handleSubmit((data) => {
                 console.log(data);
                 dispatch(
                   updateUserAsync({
@@ -307,9 +309,7 @@ function Checkout() {
                   </button>
                   <button
                     type="submit"
-                    onClick={(e) => {
-                      console.log("first");
-                    }}
+                   
                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Add Address
@@ -417,12 +417,12 @@ function Checkout() {
               <div className="mt-8">
                 <div className="flow-root">
                   <ul role="list" className="-my-6 divide-y divide-gray-200">
-                    {items.map((product) => (
-                      <li key={product.id} className="flex py-6">
+                    {items.map((item) => (
+                      <li key={item.id} className="flex py-6">
                         <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                           <img
-                            src={product.thumbnail}
-                            alt={product.title}
+                            src={item.product.thumbnail}
+                            alt={item.product.title}
                             className="h-full w-full object-cover object-center"
                           />
                         </div>
@@ -431,12 +431,12 @@ function Checkout() {
                           <div>
                             <div className="flex justify-between text-base font-medium text-gray-900">
                               <h3>
-                                <a href={product.href}>{product.title}</a>
+                                <a href={item.product.id}>{item.product.title}</a>
                               </h3>
-                              <p className="ml-4">${product.price}</p>
+                              <p className="ml-4">${item.product.price}</p>
                             </div>
                             <p className="mt-1 text-sm text-gray-500">
-                              {product.color}
+                              {item.product.brand}
                             </p>
                           </div>
                           <div className="flex flex-1 items-end justify-between text-sm">
@@ -448,8 +448,8 @@ function Checkout() {
                                 Qty
                               </label>
                               <select
-                                onChange={(e) => handleQuantity(e, product)}
-                                value={product.quantity}
+                                onChange={(e) => handleQuantity(e, item)}
+                                value={item.quantity}
                               >
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -463,7 +463,7 @@ function Checkout() {
                             <div className="flex">
                               <button
                                 type="button"
-                                onClick={(e) => handleRemove(e, product.id)}
+                                onClick={(e) => handleRemove(e, item.id)}
                                 className="font-medium text-indigo-600 hover:text-indigo-500"
                               >
                                 Remove

@@ -2,7 +2,7 @@ export function fetchAllProducts() {
   return new Promise(async (resolve) => {
     const response = await fetch("http://localhost:8080/products");
     const data = await response.json();
-    //console.log(data)
+    console.log(data)
     resolve({ data });
   });
 }
@@ -33,7 +33,7 @@ export function fetchProductsByFilters(filter, sort, pagination) {
     );
     const data = await response.json();
     const totalItems = response.headers.get("X-Total-Count");
-    console.log(queryString);
+    console.log(totalItems);
     resolve({ data: { products: data, totalItems: +totalItems } });
   });
 }
@@ -64,15 +64,16 @@ export function fetchProductById(id) {
   });
 }
 
-export function createProduct(data) {
+export function createProduct(item) {
   return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:8080/products", {
+    const response = await fetch("http://localhost:8080/products/", {
       method: "POST",
-      body: JSON.stringify(data),
+      body: JSON.stringify(item),
       headers: { "content-type": "application/json" },
     });
-    const result = await response.json();
-    resolve({ result });
+    const data = await response.json();
+    console.log(item);
+    resolve({ data });
   });
 }
 
@@ -87,7 +88,7 @@ export function updateProduct(update) {
       }
     );
 
-    const result = await response.json();
-    resolve({ result });
+    const data = await response.json();
+    resolve({ data });
   });
 }

@@ -36,9 +36,6 @@ export const fetchProductByIdAsync = createAsyncThunk(
   }
 );
 
-
-
-
 // fetching brands list
 export const fetchAllBrandsAsync = createAsyncThunk(
   'product/fetchAllBrands',
@@ -73,6 +70,7 @@ export const createProductAsync = createAsyncThunk(
   'product/createProduct',
   async (product) => {
     const response = await createProduct(product);
+    
     return response.data; 
   }
 );
@@ -102,6 +100,8 @@ export const productSlice = createSlice({
       .addCase(fetchAllProductsAsync.fulfilled, (state, action) => {
         state.status = 'idle';
         state.products = action.payload;
+        state.totalItems = action.payload.totalItems;
+   
       })
 
       .addCase(fetchProductsByFilterAsync.pending, (state) => {

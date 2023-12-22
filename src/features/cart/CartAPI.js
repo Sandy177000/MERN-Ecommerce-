@@ -7,8 +7,8 @@ export function addToCart(item) {
       headers:{'content-type': 'application/json'}
     });
 
-    const result = await response.json();
-    resolve({result});
+    const data = await response.json();
+    resolve({data});
   });
 }
 
@@ -16,9 +16,9 @@ export function fetchItemsByUserId(userId) {
   return new Promise(async(resolve) =>{
     const response = await fetch('http://localhost:8080/cart?user='+userId)
     const data = await response.json();
-    //console.log(data)
+    console.log(data)
     resolve({data});
-  });
+  }); 
 }
 
 
@@ -30,8 +30,8 @@ export function updateCart(update) {
       headers:{'content-type': 'application/json'}
     });
 
-    const result = await response.json();
-    resolve({result});
+    const data = await response.json();
+    resolve({data});
   });
 }
 
@@ -42,8 +42,8 @@ export function deleteItemFromCart(itemId) {
       method:'DELETE',
     });
 
-    const result = await response.json();
-    resolve({result:{id:itemId}});
+    const data = await response.json();
+    resolve({data:{id:itemId}});
   });
 }
 

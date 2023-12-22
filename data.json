@@ -2200,6 +2200,16 @@
           "city": "Solapur",
           "region": "Maharashtra",
           "postalcode": "413006"
+        },
+        {
+          "fullname": "demo",
+          "phone": "1234567",
+          "email": "sandesh@gmail.com",
+          "country": "India",
+          "street": "dmeo demo",
+          "city": "demopur",
+          "region": "mahademo",
+          "postalcode": "123456"
         }
       ],
       "id": 2,
@@ -2247,52 +2257,7 @@
       ]
     }
   ],
-  "cart": [
-    {
-      "title": "iPhone 9",
-      "description": "An apple mobile which is nothing like apple",
-      "price": 800,
-      "discountPercentage": 12.96,
-      "rating": 0,
-      "stock": 940,
-      "brand": "Apple",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-        "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-        "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-        "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-      ],
-      "discount": 10,
-      "delete": true,
-      "productId": 1,
-      "quantity": 2,
-      "user": 2,
-      "id": 1
-    },
-    {
-      "title": "iPhone X",
-      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 899,
-      "discountPercentage": 17.94,
-      "rating": 4.44,
-      "stock": 34,
-      "brand": "Apple",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/2/1.jpg",
-        "https://i.dummyjson.com/data/products/2/2.jpg",
-        "https://i.dummyjson.com/data/products/2/3.jpg",
-        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-      ],
-      "productId": 2,
-      "quantity": 3,
-      "user": 2,
-      "id": 2
-    }
-  ],
+  "cart": [],
   "orders": [
     {
       "items": [
@@ -3365,6 +3330,241 @@
       },
       "status": "pending",
       "id": 12
+    },
+    {
+      "items": [
+        {
+          "title": "iPhone 9",
+          "description": "An apple mobile which is nothing like apple",
+          "price": 800,
+          "discountPercentage": 12.96,
+          "rating": 0,
+          "stock": 940,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+            "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+            "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+            "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
+          ],
+          "discount": 10,
+          "delete": true,
+          "productId": 1,
+          "quantity": 2,
+          "user": 2,
+          "id": 1
+        },
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 899,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+          ],
+          "productId": 2,
+          "quantity": 3,
+          "user": 2,
+          "id": 2
+        }
+      ],
+      "totalAmount": 4297,
+      "totalItems": 5,
+      "user": {
+        "email": "test@gmail.com",
+        "password": "Sandesh@000",
+        "role": "user",
+        "addresses": [
+          {
+            "fullname": "Sandesh Yele",
+            "phone": "8208229503",
+            "email": "sandeshyele2000@gmail.com",
+            "country": "India",
+            "street": "159 Nivara Nagar",
+            "city": "Solapur",
+            "region": "Maharashtra",
+            "postalcode": "413006"
+          }
+        ],
+        "id": 2,
+        "adresses": [
+          {
+            "fullname": "Sandesh Yele",
+            "phone": "8208229504",
+            "email": "sandeshyele2000@gmail.com",
+            "country": "India",
+            "street": "159, Nivara Nagar",
+            "city": "Solapur",
+            "region": "Mahrashtra",
+            "postalcode": "413006"
+          },
+          {
+            "fullname": "aljfdlj",
+            "phone": "s",
+            "email": "sandeshyele@gmail.com",
+            "country": "India",
+            "street": "ldjkf",
+            "city": "l",
+            "region": "s",
+            "postalcode": "545"
+          },
+          {
+            "fullname": "sjf",
+            "phone": "kdh",
+            "email": "kjsdf@mgail.com",
+            "country": "India",
+            "street": "kajd",
+            "city": "kdj",
+            "region": "fkdjf",
+            "postalcode": "45"
+          },
+          {
+            "fullname": "Sandesh Yele",
+            "phone": "8208229504",
+            "email": "sandeshyele2000@gmail.com",
+            "country": "India",
+            "street": "159, Nivara Nagar",
+            "city": "Solapur",
+            "region": "Maharashtra",
+            "postalcode": "413006"
+          }
+        ]
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "fullname": "Sandesh Yele",
+        "phone": "8208229503",
+        "email": "sandeshyele2000@gmail.com",
+        "country": "India",
+        "street": "159 Nivara Nagar",
+        "city": "Solapur",
+        "region": "Maharashtra",
+        "postalcode": "413006"
+      },
+      "status": "pending",
+      "id": 13
+    },
+    {
+      "items": [
+        {
+          "title": "iPhone 9",
+          "description": "An apple mobile which is nothing like apple",
+          "price": 800,
+          "discountPercentage": 12.96,
+          "rating": 0,
+          "stock": 940,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+            "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+            "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+            "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
+          ],
+          "discount": 10,
+          "delete": true,
+          "productId": 1,
+          "quantity": 1,
+          "user": 2,
+          "id": 1
+        }
+      ],
+      "totalAmount": 800,
+      "totalItems": 1,
+      "user": {
+        "email": "test@gmail.com",
+        "password": "Sandesh@000",
+        "role": "user",
+        "addresses": [
+          {
+            "fullname": "Sandesh Yele",
+            "phone": "8208229503",
+            "email": "sandeshyele2000@gmail.com",
+            "country": "India",
+            "street": "159 Nivara Nagar",
+            "city": "Solapur",
+            "region": "Maharashtra",
+            "postalcode": "413006"
+          },
+          {
+            "fullname": "demo",
+            "phone": "1234567",
+            "email": "sandesh@gmail.com",
+            "country": "India",
+            "street": "dmeo demo",
+            "city": "demopur",
+            "region": "mahademo",
+            "postalcode": "123456"
+          }
+        ],
+        "id": 2,
+        "adresses": [
+          {
+            "fullname": "Sandesh Yele",
+            "phone": "8208229504",
+            "email": "sandeshyele2000@gmail.com",
+            "country": "India",
+            "street": "159, Nivara Nagar",
+            "city": "Solapur",
+            "region": "Mahrashtra",
+            "postalcode": "413006"
+          },
+          {
+            "fullname": "aljfdlj",
+            "phone": "s",
+            "email": "sandeshyele@gmail.com",
+            "country": "India",
+            "street": "ldjkf",
+            "city": "l",
+            "region": "s",
+            "postalcode": "545"
+          },
+          {
+            "fullname": "sjf",
+            "phone": "kdh",
+            "email": "kjsdf@mgail.com",
+            "country": "India",
+            "street": "kajd",
+            "city": "kdj",
+            "region": "fkdjf",
+            "postalcode": "45"
+          },
+          {
+            "fullname": "Sandesh Yele",
+            "phone": "8208229504",
+            "email": "sandeshyele2000@gmail.com",
+            "country": "India",
+            "street": "159, Nivara Nagar",
+            "city": "Solapur",
+            "region": "Maharashtra",
+            "postalcode": "413006"
+          }
+        ]
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "fullname": "Sandesh Yele",
+        "phone": "8208229503",
+        "email": "sandeshyele2000@gmail.com",
+        "country": "India",
+        "street": "159 Nivara Nagar",
+        "city": "Solapur",
+        "region": "Maharashtra",
+        "postalcode": "413006"
+      },
+      "status": "pending",
+      "id": 14
     }
   ]
 }

@@ -70,7 +70,7 @@ const AdminOrders = () => {
         <>
           {/* component */}
           <div className="overflow-x-auto">
-            Total Orders : {totalOrders}
+            <div className=" bg-white w-fit p-3">Total Orders : <text className="font-bold">{totalOrders}</text></div>
             <div className=" bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-hidden">
               <div className="">
                 <div className="bg-white shadow-md rounded my-6">
@@ -135,11 +135,11 @@ const AdminOrders = () => {
                                 <div className="mr-2">
                                   <img
                                     className="w-6 h-6 rounded-full"
-                                    src={item.thumbnail}
+                                    src={item.product.thumbnail}
                                   ></img>
                                 </div>
                                 <span>
-                                  {item.title}--{item.quantity} x ${item.price}
+                                  {item.product.title}--{item.quantity} x ${item.product.price}
                                 </span>
                               </div>
                             ))}
@@ -153,13 +153,13 @@ const AdminOrders = () => {
                           <td className="py-3 px-6 text-left">
                             <div className="flex flex-col items-left">
                               <text className="font-bold">
-                                {order.selectedAddress.fullname}
+                                {order.selectedAddress[0].fullname}
                               </text>
                               <div>
-                                {order.selectedAddress.street},
-                                {order.selectedAddress.city},
+                                {order.selectedAddress[0].street},
+                                {order.selectedAddress[0].city},
                               </div>
-                              <div>{order.selectedAddress.postalcode}</div>
+                              <div>{order.selectedAddress[0].postalcode}</div>
                             </div>
                           </td>
 
